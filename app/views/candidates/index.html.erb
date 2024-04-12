@@ -1,14 +1,24 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Candidates</h1>
-
-<div id="candidates">
-  <% @candidates.each do |candidate| %>
-    <%= render candidate %>
-    <p>
-      <%= link_to "Show this candidate", candidate %>
-    </p>
-  <% end %>
+<div class="flex flex-col mt-24 space-y-16">
+  <h1 class="text-6xl text-center">Candidates</h1>
+  <div id="candidates" class="flex flex-wrap justify-center space-x-16">
+    <% @candidates.each do |candidate| %>
+      <div id="<%= dom_id candidate %>" class="card w-96 bg-base-100 shadow-xl">
+        <figure><img src="https://robohash.org/<%= candidate.id %>" /></figure>
+        <div class="card-body">
+          <div class="flex text-3xl">
+            <%= candidate.first_name %>
+            <%= candidate.last_name %>
+          </div>
+          <p>
+            <strong>Status:</strong>
+            <%= candidate.status %>
+          </p>
+          <div class="card-actions justify-end">
+            <%= link_to "Details", candidate, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "New candidate", new_candidate_path %>
 </div>
-
-<%= link_to "New candidate", new_candidate_path %>
