@@ -10,7 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_12_175911) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_12_180930) do
+  create_table "candidates", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "technical_score"
+    t.string "average_behavioral"
+    t.string "total_score"
+    t.string "highest_level"
+    t.string "higher_education_name"
+    t.string "major"
+    t.string "gender"
+    t.string "pronouns"
+    t.string "race"
+    t.string "employment_status"
+    t.integer "current_income"
+    t.string "status"
+    t.integer "cohort_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cohorts", force: :cascade do |t|
+    t.string "name"
+    t.integer "candidates_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
