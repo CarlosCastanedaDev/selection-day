@@ -1,77 +1,22 @@
-<div id="<%= dom_id candidate %>">
-  <p>
-    <strong>First name:</strong>
-    <%= candidate.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= candidate.last_name %>
-  </p>
-
-  <p>
-    <strong>Technical score:</strong>
-    <%= candidate.technical_score %>
-  </p>
-
-  <p>
-    <strong>Average behavioral:</strong>
-    <%= candidate.average_behavioral %>
-  </p>
-
-  <p>
-    <strong>Total score:</strong>
-    <%= candidate.total_score %>
-  </p>
-
-  <p>
-    <strong>Highest level:</strong>
-    <%= candidate.highest_level %>
-  </p>
-
-  <p>
-    <strong>Higher education name:</strong>
-    <%= candidate.higher_education_name %>
-  </p>
-
-  <p>
-    <strong>Major:</strong>
-    <%= candidate.major %>
-  </p>
-
-  <p>
-    <strong>Gender:</strong>
-    <%= candidate.gender %>
-  </p>
-
-  <p>
-    <strong>Pronouns:</strong>
-    <%= candidate.pronouns %>
-  </p>
-
-  <p>
-    <strong>Race:</strong>
-    <%= candidate.race %>
-  </p>
-
-  <p>
-    <strong>Employment status:</strong>
-    <%= candidate.employment_status %>
-  </p>
-
-  <p>
-    <strong>Current income:</strong>
-    <%= candidate.current_income %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= candidate.status %>
-  </p>
-
-  <p>
-    <strong>Cohort:</strong>
-    <%= candidate.cohort_id %>
-  </p>
-
+<div class="flex flex-col justify-center items-center mt-16">
+  <div id="<%= dom_id candidate %>" class="card w-96 bg-primary shadow-xl">
+    <figure><img src="https://robohash.org/<%= candidate.id %>" /></figure>
+    <div class="card-body space-y-4">
+      <div class="flex text-4xl justify-center text-white">
+        <%= candidate.first_name %>
+        <%= candidate.last_name %>
+      </div>
+      <p class="text-center text-white">
+        <strong>Status:</strong>
+        <%= candidate.status %>
+      </p>
+      <p class="text-center text-white text-2xl">Maybe</p>
+    </div>
+  </div>
+  <div class="flex justify-around mt-24 space-x-32">
+    <%= render "candidates/about", candidate: candidate %>
+    <%= render "candidates/education", candidate: candidate %>
+    <%= render "candidates/scores", candidate: candidate %>
+  </div>
+</div>
 </div>

@@ -1,0 +1,41 @@
+<div>
+  <h2 class="text-center text-3xl">About</h2>
+  <div class="overflow-x-auto">
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row 1 -->
+        <tr class="hover">
+          <td class="font-bold text-xl">Race/Ethnicity</td>
+          <td class="text-lg"><%= candidate.race %></td>
+        </tr>
+        <!-- row 2 -->
+        <tr class="hover">
+          <td class="font-bold text-xl">Gender</td>
+          <td class="text-lg"><%= candidate.gender %></td>
+        </tr>
+        <!-- row 3 -->
+        <tr class="hover">
+          <td class="font-bold text-xl">Pronouns</td>
+          <td class="text-lg"><%= candidate.pronouns %></td>
+        </tr>
+        <!-- row 4 -->
+        <tr class="hover">
+          <td class="font-bold text-xl">Employment Status</td>
+          <td class="text-lg"><%= candidate.employment_status %></td>
+        </tr>
+        <!-- row 5 -->
+        <tr class="hover">
+          <td class="font-bold text-xl">Current Income</td>
+          <td class="text-lg"><%= number_to_currency(candidate.current_income) %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div>

@@ -1,0 +1,28 @@
+<h2 class="text-center text-3xl">Scores</h2>
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row 1 -->
+      <tr class="hover">
+        <td class="font-bold text-xl">Technical Score</td>
+        <td class="text-lg"><%= candidate.technical_score %></td>
+      </tr>
+      <!-- row 2 -->
+      <tr class="hover">
+        <td class="font-bold text-xl">Average Behavioral</td>
+        <td class="text-lg"><%= candidate.average_behavioral %></td>
+      </tr>
+      <!-- row 3 -->
+      <tr class="hover">
+        <td class="font-bold text-xl">Total Score</td>
+        <td class="text-lg"><%= candidate.total_score %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
