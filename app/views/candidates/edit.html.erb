@@ -1,10 +1,9 @@
-<h1>Editing candidate</h1>
-
-<%= render "form", candidate: @candidate %>
-
-<br>
-
-<div>
-  <%= link_to "Show this candidate", @candidate %> |
-  <%= link_to "Back to candidates", candidates_path %>
+<div class="flex flex-col justify-center items-center">
+  <h1 class="text-4xl text-white my-8">Editing candidate</h1>
+  <%= render "form", candidate: @candidate %>
+  <br>
+  <div class="space-x-8 my-16">
+    <%= link_to "Show this candidate", @candidate, class: "btn btn-primary" %>
+    <%= link_to "Back to candidates", candidates_path, class: "btn btn-primary" %>
+  </div>
 </div>

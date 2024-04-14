@@ -1,79 +1,83 @@
-<%= form_with(model: candidate) do |form| %>
-  <% if candidate.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
-      <ul>
-        <% candidate.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="flex justify-center border-2 border-white rounded-lg w-[400px] mb-4 p-4">
+  <%= form_with(model: candidate) do |form| %>
+    <% if candidate.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+        <ul>
+          <% candidate.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="space-y-4">
+      <div>
+        <%= form.label :first_name, style: "display: block" %>
+        <%= form.text_field :first_name, class: "w-full p-2 text-lg border rounded"  %>
+      </div>
+      <div>
+        <%= form.label :last_name, style: "display: block" %>
+        <%= form.text_field :last_name, class: "w-full p-2 text-lg border rounded"  %>
+      </div>
+      <div>
+        <%= form.label :email, style: "display: block" %>
+        <%= form.text_field :email, class: "w-full p-2 text-lg border rounded"  %>
+      </div>
+      <div>
+        <%= form.label :technical_score, style: "display: block" %>
+        <%= form.text_field :technical_score, class: "w-full p-2 text-lg border rounded"  %>
+      </div>
+      <div>
+        <%= form.label :average_behavioral, style: "display: block" %>
+        <%= form.text_field :average_behavioral, class: "w-full p-2 text-lg border rounded"  %>
+      </div>
+      <div>
+        <%= form.label :total_score, style: "display: block" %>
+        <%= form.text_field :total_score, class: "w-full p-2 text-lg border rounded"  %>
+      </div>
+      <div>
+        <%= form.label :highest_level, style: "display: block" %>
+        <%= form.select :highest_level, ["High School", "Bachelor's", "Master's", "Doctorate"], {}, {class: "w-full p-2 text-lg border rounded"}  %>
+      </div>
+      <div>
+        <%= form.label :higher_education_name, style: "display: block" %>
+        <%= form.text_field :higher_education_name, class: "w-full p-2 text-lg border rounded"  %>
+      </div>
+      <div>
+        <%= form.label :major, style: "display: block" %>
+        <%= form.text_field :major, class: "w-full p-2 text-lg border rounded"  %>
+      </div>
+      <div>
+        <%= form.label :gender, style: "display: block" %>
+        <%= form.select :gender, ["Male", "Female", "Non-Binary"], {}, {class: "w-full p-2 text-lg border rounded"}  %>
+      </div>
+      <div>
+        <%= form.label :pronouns, style: "display: block" %>
+        <%= form.select :pronouns, ["He/Him/His", "She/Her/Hers", "They/Them/Theirs"], {}, {class: "w-full p-2 text-lg border rounded"}  %>
+      </div>
+      <div>
+        <%= form.label :race, style: "display: block" %>
+        <%= form.select :race, ["White", "Black or African American", "Hispanic or Latino/Latina/Latinx", "Asian", "Middle Eastern", "Other"], {}, {class: "w-full p-2 text-lg border rounded"}  %>
+      </div>
+      <div>
+        <%= form.label :employment_status, style: "display: block" %>
+        <%= form.select :employment_status, ["Full-time", "Part-time", "Unemployed", "N/A"], {}, {class: "w-full p-2 text-lg border rounded"}  %>
+      </div>
+      <div>
+        <%= form.label :current_income, "Current Income (yearly)", style: "display: block" %>
+        <%= form.number_field :current_income, class: "w-full p-2 text-lg border rounded"  %>
+      </div>
+      <div>
+        <%= form.label :status, style: "display: block" %>
+        <%= form.select :status, ["Maybe", "Yes", "No"], {}, {class: "w-full p-2 text-lg border rounded"}  %>
+      </div>
+      <div>
+        <%= form.label :cohort_id, style: "display: block" %>
+        <%= form.collection_select :cohort_id, Cohort.all, :id, :name, {}, {class: "w-full p-2 text-lg border rounded"}  %>
+      </div>
+      <div class="text-center">
+        <%= form.submit "Update Candidate", class: "btn btn-primary" %>
+      </div>
     </div>
   <% end %>
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
-  </div>
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
-  </div>
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
-  <div>
-    <%= form.label :technical_score, style: "display: block" %>
-    <%= form.text_field :technical_score %>
-  </div>
-  <div>
-    <%= form.label :average_behavioral, style: "display: block" %>
-    <%= form.text_field :average_behavioral %>
-  </div>
-  <div>
-    <%= form.label :total_score, style: "display: block" %>
-    <%= form.text_field :total_score %>
-  </div>
-  <div>
-    <%= form.label :highest_level, style: "display: block" %>
-    <%= form.text_field :highest_level %>
-  </div>
-  <div>
-    <%= form.label :higher_education_name, style: "display: block" %>
-    <%= form.text_field :higher_education_name %>
-  </div>
-  <div>
-    <%= form.label :major, style: "display: block" %>
-    <%= form.text_field :major %>
-  </div>
-  <div>
-    <%= form.label :gender, style: "display: block" %>
-    <%= form.text_field :gender %>
-  </div>
-  <div>
-    <%= form.label :pronouns, style: "display: block" %>
-    <%= form.text_field :pronouns %>
-  </div>
-  <div>
-    <%= form.label :race, style: "display: block" %>
-    <%= form.text_field :race %>
-  </div>
-  <div>
-    <%= form.label :employment_status, style: "display: block" %>
-    <%= form.text_field :employment_status %>
-  </div>
-  <div>
-    <%= form.label :current_income, style: "display: block" %>
-    <%= form.number_field :current_income %>
-  </div>
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
-  </div>
-  <div>
-    <%= form.label :cohort_id, style: "display: block" %>
-    <%= form.number_field :cohort_id %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

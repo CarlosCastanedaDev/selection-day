@@ -23,4 +23,5 @@
 #  email                 :string
 #
 class Candidate < ApplicationRecord
+    belongs_to :cohort, required: true, class_name: "Cohort", foreign_key: "cohort_id", counter_cache: true
 end

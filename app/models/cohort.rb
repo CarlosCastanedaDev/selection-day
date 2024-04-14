@@ -9,4 +9,5 @@
 #  updated_at       :datetime         not null
 #
 class Cohort < ApplicationRecord
+    has_many  :candidates, class_name: "Candidate", foreign_key: "cohort_id", dependent: :destroy
 end
