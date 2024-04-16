@@ -1,14 +1,12 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Cohorts</h1>
-
-<div id="cohorts">
-  <% @cohorts.each do |cohort| %>
-    <%= render cohort %>
-    <p>
-      <%= link_to "Show this cohort", cohort %>
-    </p>
-  <% end %>
+<div class="flex flex-col justify-center items-center mt-16">
+  <h1 class="text-4xl text-white my-8">Cohorts</h1>
+  <div id="cohorts" class="space-y-8">
+    <% @cohorts.each do |cohort| %>
+      <%= link_to cohort do %>
+        <%= render cohort %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to "New cohort", new_cohort_path, class: "btn btn-primary" %>
 </div>
-
-<%= link_to "New cohort", new_cohort_path %>
